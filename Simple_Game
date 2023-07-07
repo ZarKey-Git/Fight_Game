@@ -1,0 +1,23 @@
+class Enemy:
+    def __init__(self, name):
+        self.name = name
+        self.lives = 3
+        
+    def attack(self):
+        self.lives -= 1
+        print("Ouch!")
+
+    def checkLife(self):
+        if self.lives > 0:
+            print(f"{self.name} has {self.lives} life(s) left.")
+        else:
+            print(f"{self.name} is dead!")
+
+enemy_names = ['Enemy1', 'Enemy2', 'Enemy3']
+enemies = [Enemy(name) for name in enemy_names]
+
+for enemy in enemies:
+    print(f"Facing {enemy.name}")
+    while enemy.lives > 0:
+        enemy.attack()
+        enemy.checkLife()
